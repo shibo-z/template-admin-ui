@@ -1,0 +1,137 @@
+{
+    "name": "Admin",
+    "version": "1.0.0.0",
+    "indexHtmlPath": "index.html",
+    "framework": "ext",
+    "requires": [
+        "charts",
+        "font-awesome",
+        "locale",
+        "ux"
+    ],
+    "locale": "zh_CN",
+    "toolkit": "classic",
+    "theme": "theme-triton",
+    "classpath": [
+        "app"
+    ],
+    "overrides": [
+        "overrides"
+    ],
+    "sass": {
+        "namespace": "Admin",
+        "etc": [
+            "sass/etc/all.scss"
+        ],
+        "var": [
+            "sass/var/all.scss",
+            "sass/var"
+        ],
+        "src": [
+            "sass/src"
+        ]
+    },
+    "js": [
+        {
+            "path": "app.js",
+            "bundle": true
+        }
+    ],
+    "css": [
+        {
+            "path": "${build.out.css.path}",
+            "bundle": true,
+            "exclude": [
+                "fashion"
+            ]
+        }
+    ],
+    "loader": {
+        "cache": false,
+        "cacheParam": "_dc"
+    },
+    "bootstrap": {
+        "base": "${app.dir}",
+        "manifest": "app.json",
+        "microloader": "bootstrap.js",
+        "css": "bootstrap.css"
+    },
+    "output": {
+        //"base": "${ext.dir}/build/examples/admin-dashboard/${build.id}",
+        "base": "${app.dir}/public",
+        "page": "index.html",
+        "manifest": "app.json",
+        "appCache": {
+            "enable": false
+        }
+    },
+    "cache": {
+        "enable": false,
+        "deltas": false
+    },
+    /**
+     * Used to automatically generate cache.manifest (HTML 5 application cache manifest)
+     * file when you build.
+     */
+    "appCache": {
+        /**
+         * List of items in the CACHE MANIFEST section
+         */
+        "cache": [
+            "index.html"
+        ],
+        /**
+         * List of items in the NETWORK section
+         */
+        "network": [
+            "*"
+        ],
+        /**
+         * List of items in the FALLBACK section
+         */
+        "fallback": []
+    },
+    /**
+     * Extra resources to be copied into the resource folder as specified in the "resources"
+     * property of the "output" object. Folders specified in this list will be deeply copied.
+     */
+    "resources": [
+        {
+            "path": "resources"
+        }
+    ],
+    /**
+     * File / directory name patttern to ignore when copying to the builds. Must be a
+     * valid regular expression.
+     */
+    "ignore": [
+        "(^|/)CVS(/?$|/.*?$)"
+    ],
+    /**
+     * Directory path to store all previous production builds. Note that the content
+     * generated inside this directory must be kept intact for proper generation of
+     * deltas between updates.
+     */
+    "archivePath": "archive",
+    /**
+     * Additional resources used during theme slicing operations
+     */
+    "slicer": {
+        "js": [
+            {
+                "path": "sass/example/custom.js",
+                "isWidgetManifest": true
+            }
+        ],
+        "output": {
+            "appCache": {
+                "enable": false
+            }
+        },
+        "cache": {
+            "enable": false
+        }
+    },
+
+    "id": "39acbe74-575a-4e77-8062-a62324a1e58f"
+}

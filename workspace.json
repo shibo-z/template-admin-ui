@@ -1,0 +1,27 @@
+{
+    "frameworks": {
+        "ext": {
+            "path":"ext",
+            "version":"7.0.0.168"
+        }
+
+    },
+
+    "build": {
+        "dir": "${workspace.dir}/public"
+    },
+
+
+    "packages": {
+        /**
+         * This folder contains all local packages.
+         * If a comma-separated string is used as value the first path will be used as the path to generate new packages.
+         */
+        "dir": "${workspace.dir}/packages/local,${workspace.dir}/packages",
+
+        /**
+         * This folder contains all extracted (remote) packages.
+         */
+        "extract": "${workspace.dir}/packages/remote"
+    }
+}
