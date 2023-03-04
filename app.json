@@ -13,22 +13,28 @@
     "toolkit": "classic",
     "theme": "theme-triton",
     "classpath": [
-        "app"
+        "app",
+        "${build.id}/src"
     ],
     "overrides": [
-        "overrides"
+        "overrides",
+        "${build.id}/overrides"
     ],
     "sass": {
         "namespace": "Admin",
         "etc": [
-            "sass/etc/all.scss"
+            "sass/etc/all.scss",
+            "${build.id}/sass/etc/all.scss"
         ],
         "var": [
             "sass/var/all.scss",
-            "sass/var"
+            "sass/var",
+            "${build.id}/sass/var/all.scss",
+            "${build.id}/sass/var"
         ],
         "src": [
-            "sass/src"
+            "sass/src",
+            "${build.id}/sass/src"
         ]
     },
     "js": [
@@ -52,15 +58,15 @@
     },
     "bootstrap": {
         "base": "${app.dir}",
-        "manifest": "app.json",
+        "manifest": "${build.id}.json",
         "microloader": "bootstrap.js",
         "css": "bootstrap.css"
     },
     "output": {
         //"base": "${ext.dir}/build/examples/admin-dashboard/${build.id}",
-        "base": "${app.dir}/public",
-        "page": "index.html",
-        "manifest": "app.json",
+        "base": "${app.dir}/public/${build.id}",
+        "page": "../index.html",
+        "manifest": "../${build.id}.json",
         "appCache": {
             "enable": false
         }
@@ -98,6 +104,9 @@
     "resources": [
         {
             "path": "resources"
+        },
+        {
+            "path": "${build.id}/resources"
         }
     ],
     /**
@@ -130,6 +139,17 @@
         },
         "cache": {
             "enable": false
+        }
+    },
+
+    "builds": {
+        "desktop": {
+            "toolkit": "classic",
+            "theme": "theme-triton"
+        },
+        "fashion": {
+            "toolkit": "classic",
+            "theme": "theme-triton"
         }
     },
 

@@ -1,0 +1,252 @@
+$base-color: #181818;
+$admin-taskbar-btn-opt-color: #3f3843;
+$admin-taskbar-color: #181818;
+
+//开始按钮
+@include extjs-button-small-ui(
+        $ui: 'ui-start-btn',
+        $background-color: transparent,
+        $background-color-focus-over: $admin-taskbar-btn-opt-color,
+        $background-color-focus-pressed: $admin-taskbar-btn-opt-color,
+        $background-color-over: $admin-taskbar-btn-opt-color,
+        $inner-border-width: 0px
+
+);
+.ux-start-button-icon {
+  background-image: url(images/taskbar/start.svg) !important;
+  background-color: transparent;
+  width: 36px !important;
+  height: 36px;
+}
+
+// 菜单面板
+//左
+@mixin start-panel {
+  color: #ffffff;
+  //background-color: $admin-taskbar-color;
+  background-color: rgba(18,18,18,0.8);
+}
+.ux-start-menu-body {
+  @include start-panel;
+}
+.ux-start-menu-toolbar {
+  //padding: 4px !important;
+  padding: 0px !important;
+  @include start-panel;
+}
+@include extjs-menu-ui (
+        $ui: 'ui-startpanel-menu',
+        $ui-text-color: #ffffff
+
+)
+// 右
+@include extjs-panel-ui (
+        $ui: 'ui-startpanel-right',
+        $ui-border-width: 0px,
+        $ui-border-radius: 4px,
+        $ui-body-color: #ffffff,
+        $ui-body-background-color: rgba(90,90,90,0.9)
+)
+@include extjs-button-small-ui(
+        $ui: 'ui-startpanel-right-btn',
+        $color: #bfbfbf,
+        $border-width: 0px,
+        $border-radius: 4px,
+        $inner-border-width: 0px,
+        $background-color: #8a8a8a,
+        $background-color-focus-over: $admin-taskbar-btn-opt-color,
+        $background-color-focus-pressed: $admin-taskbar-btn-opt-color,
+        $background-color-over: $admin-taskbar-btn-opt-color
+);
+
+// 任务栏
+.ux-taskbar {
+  //padding-left: 4px !important;
+  padding: 0px !important;
+  background-color: $admin-taskbar-color;
+}
+
+div.ux-taskbar div.x-toolbar {
+  background: transparent none;
+  border: 0 none;
+  padding: 0;
+}
+
+@include extjs-button-small-ui(
+        $ui: 'ui-task-btn',
+        $background-color: transparent,
+        $background-color-focus-over: $admin-taskbar-btn-opt-color,
+        $background-color-focus-pressed: $admin-taskbar-btn-opt-color,
+        $background-color-over: $admin-taskbar-btn-opt-color,
+        $inner-border-width: 0px
+
+);
+
+
+// 任务栏右侧时钟
+.ux-desktop-trayclock {
+  color: #f6f6f6;
+  text-align: center;
+  vertical-align: middle;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/**
+------------------------------------------------------------------------------------------------------------------------
+  桌面
+ */
+.ux-wallpaper {
+  background-color: $admin-taskbar-color;
+}
+
+.ux-wallpaper-tiled {
+  background-repeat: repeat;
+}
+
+.ux-desktop-shortcut {
+  cursor: pointer;
+  text-align: center;
+  padding: 8px;
+  margin: 8px;
+  width: 64px;
+}
+
+.ux-desktop-shortcut-icon {
+  width: 48px;
+  height: 48px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+}
+
+.ux-desktop-shortcut-text {
+  font: normal 10px tahoma,arial,verdana,sans-serif;
+  text-decoration: none;
+  padding-top: 5px;
+  color: white;
+}
+
+.x-view-over .ux-desktop-shortcut-text {
+  text-decoration: underline;
+}
+
+/**
+------------------------------------------------------------------------------------------------------------------------
+  快捷方式与任务栏
+ */
+// region 图标背景色
+@mixin shortcut-color-1{ background: linear-gradient(#F36F74, #F2585E) }
+@mixin shortcut-color-2{ background: linear-gradient(#FF8E73, #FF7C5C) }
+@mixin shortcut-color-3{ background: linear-gradient(#F8AE5F, #F7A145) }
+@mixin shortcut-color-4{ background: linear-gradient(#E8CA45, #E5C238) }
+@mixin shortcut-color-5{ background: linear-gradient(#53CD6B, #37C553) }
+@mixin shortcut-color-6{ background: linear-gradient(#57CFB4, #2AC7A8) }
+@mixin shortcut-color-7{ background: linear-gradient(#5ACCDE, #3FC4D9) }
+@mixin shortcut-color-8{ background: linear-gradient(#24BAF7, #00AFF6) }
+@mixin shortcut-color-9{ background: linear-gradient(#5874CA, #3D5EC2) }
+@mixin shortcut-color-10{ background: linear-gradient(#9164C7, #7F4BBE) }
+@mixin shortcut-color-11{ background: linear-gradient(#C085E6, #B671E2) }
+@mixin shortcut-color-12{ background: linear-gradient(#F694D8, #F583D2) }
+@mixin shortcut-color-13{ background: linear-gradient(#9099A3, #7E8994) }
+@mixin shortcut-color-14{ background: linear-gradient(#9DA79D, #8D998E) }
+@mixin shortcut-color-15{ background: linear-gradient(#A49995, #968984) }
+@mixin shortcut-color-16{ background: linear-gradient(#32404E, #32404E) }
+// endregion
+// region 桌面图标通用
+@mixin shortcut-comm {
+  border-radius: calc(48px / 6);
+  box-shadow: 0 calc(48px / 64) calc(48px / 32) 0 rgba(0, 0, 0, .14);
+  box-sizing: border-box;
+  display: inline-block;
+  height: 48px;
+  padding: calc(48px / 6.7368421);
+  width: 48px;
+}
+@mixin shortcut-after-comm {
+  background-position: top left;
+  background-size: 100% 100%;
+  content: '';
+  height: calc(48px * 0.703125);
+  width: calc(48px * 0.703125);
+  position: absolute;
+  left: 16px;
+}
+// endregion
+// region 任务栏通用
+@mixin icon-task-comm {
+  border-radius: calc(36px / 6);
+  box-shadow: 0 calc(36px / 64) calc(36px / 32) 0 rgba(0, 0, 0, .14);
+  box-sizing: border-box;
+  display: inline-block;
+  height: 36px;
+  padding: calc(36px / 6.7368421);
+  width: 36px !important;
+}
+
+@mixin icon-task-after-comm {
+  background-position: top left;
+  background-size: 100% 100%;
+  content: '';
+  height: calc(36px * 0.703125);
+  width: calc(36px * 0.703125);
+  position: absolute;
+  left: 6px;
+}
+// endregion
+// region 图标 - 用户管理
+// 图标背景色
+.shortcut-usermgr {
+  @include shortcut-color-2;
+  @include shortcut-comm;
+}
+// 图标
+.shortcut-usermgr::after {
+  background-image: url(images/shortcut/users.svg);
+  @include shortcut-after-comm;
+}
+// 任务栏图标
+.icon-usermgr {
+  background-image: url(images/shortcut/users.svg);
+  background-size: 16px 16px;
+}
+.icon-usermgr-task {
+  @include shortcut-color-2;
+  @include icon-task-comm;
+}
+.icon-usermgr-task::after {
+  background-image: url(images/shortcut/users.svg);
+  @include icon-task-after-comm;
+}
+// endregion
+
+/**
+------------------------------------------------------------------------------------------------------------------------
+  布局
+ */
+// region 弹性布局比例
+.big-35 {
+  @include responsivecolumn-item(35%);
+}
+
+.big-50 {
+  @include responsivecolumn-item(50%);
+}
+
+.big-65 {
+  @include responsivecolumn-item(65%);
+}
+
+.big-100 {
+  @include responsivecolumn-item(100%);
+}
+
+.x-responsivecolumn-small {
+  > .small-100 {
+    @include responsivecolumn-item(100%);
+  }
+
+  > .small-50 {
+    @include responsivecolumn-item(50%);
+  }
+}
+// endregion
